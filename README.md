@@ -1,6 +1,6 @@
 # time_travel
 
-## Improving our ability to test the passage of time in a distributed system
+## Improving our ability to execute tests involving the passage of time in a distributed system
 ```cs
 // Arrange
 var now = new DateTime(2001, 01, 01, 9, 0, 0, DateTimeKind.Utc);
