@@ -1,5 +1,19 @@
 # time_travel
 
+## Improving our ability to test the passage of time
+```cs
+// Arrange
+var now = new DateTime(2001, 01, 01, 9, 0, 0, DateTimeKind.Utc);
+await _clock.SetSystemTime(now);
+
+// Act
+var response = await _client.GetFromJsonAsync<Invoice>("/invoice");
+
+// Assert
+response.Amount.Should().Be(1);
+response.CreatedAt.Should().Be(now);
+```
+
 # System time service
 
 ## Use cases
