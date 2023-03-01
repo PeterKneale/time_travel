@@ -35,6 +35,7 @@ public class SystemTime : ISystemTime
         {
             _logs.LogInformation("Simulation is enabled, so return the simulated date time");
             var value = await _client.GetStringAsync(Constants.Endpoint);
+            value = value.Replace("\"", string.Empty);// content is return as json string
             _logs.LogInformation("Simulation time retrieved {SystemTime}", value);
             return DateTime.Parse(value).ToUniversalTime();
         }
